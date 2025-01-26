@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 
 const router = express.Router();
 
@@ -34,9 +35,53 @@ const bookslist = [
   }
 ]
 
+const bookreview = [
+  {
+    "id": 1,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "price": 10.99,
+    "isbn": "9780743273565",
+    "review":'good'
+  },
+  {
+    "id": 2,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "price": 8.99,
+    "isbn": "9780061120084",
+    "review":'Excellent'
+  },
+  {
+    "id": 3,
+    "title": "1984",
+    "author": "George Orwell",
+    "price": 9.99,
+    "isbn": "9780451524936",
+    "review":'very good'
+    
+  },
+  {
+    "id": 4,
+    "title": "1984",
+    "author": "George Orwell",
+    "price": 9.99,
+    "isbn": "9780451524936",
+    "review":'Bad'
+  }
+]
+
+
+
 router.get('/', (req, res) => {
   return res.json(bookslist);
 });
+
+router.get('/bookreview', (req, res) => {
+  return res.json(bookreview);
+});
+
+
 
 
 router.get('/isbn/:isbn', async (req, res) => {
